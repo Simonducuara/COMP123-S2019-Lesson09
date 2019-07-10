@@ -12,6 +12,9 @@ namespace Building_a_Calculator
 {
     public partial class CalcuatorForm : Form
     {
+        /// <summary>
+        /// this is the constructor for the calculator form
+        /// </summary>
         public CalcuatorForm()
         {
             InitializeComponent();
@@ -19,6 +22,30 @@ namespace Building_a_Calculator
 
         private void button10_Click(object sender, EventArgs e)
         {
+
+        }
+        /// <summary>
+        /// this is a shared event handler for the calculatorbutton click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculatorButton_Click(object sender, EventArgs e)
+        {
+            var TheButton = sender as Button;
+
+            int ButtonValue;
+            bool Result = int.TryParse(TheButton.Text ,out ButtonValue);
+
+            if (Result)
+            {
+                ResultLabel.Text = TheButton.Text;
+            }
+            else
+            {
+                ResultLabel.Text = "Not a number (NAN)";
+            }
+            
+
 
         }
     }
